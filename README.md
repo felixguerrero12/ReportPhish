@@ -1,63 +1,54 @@
-# PhishingReportAddin
+# Deploying the PhishingRibbon Add-in to Outlook
 
 Deploying the PhishingRibbon add-in to Outlook involves several steps. Here's a general guide on how to deploy a VSTO (Visual Studio Tools for Office) add-in like yours:
 
-Build the Solution:
+## 1. Build the Solution
 
-In Visual Studio, set the solution configuration to "Release"
-Build the solution (Build > Build Solution)
+- In Visual Studio, set the solution configuration to "Release"
+- Build the solution (Build > Build Solution)
 
+## 2. Create a deployment package
 
-Create a deployment package:
+- Right-click on your project in Solution Explorer
+- Select "Publish"
+- Choose a publish method (e.g., File System, FTP, Web Site)
+- Set a location for the published files
+- Click "Publish"
 
-Right-click on your project in Solution Explorer
-Select "Publish"
-Choose a publish method (e.g., File System, FTP, Web Site)
-Set a location for the published files
-Click "Publish"
+## 3. Distribute the files
 
+- The publish process will create a setup.exe file and a .vsto file
+- These files, along with any other dependencies, need to be distributed to users
 
-Distribute the files:
+## 4. Installation on user machines
 
-The publish process will create a setup.exe file and a .vsto file
-These files, along with any other dependencies, need to be distributed to users
+- Users run the setup.exe file to install the add-in
+- Outlook must be closed during installation
 
+## 5. Group Policy Deployment (for organizations)
 
-Installation on user machines:
+- Create a network share with the installation files
+- Use Group Policy to deploy the add-in across the organization
 
-Users run the setup.exe file to install the add-in
-Outlook must be closed during installation
+## 6. ClickOnce Deployment
 
+- This allows users to install from a web server and receive automatic updates
+- Publish to a web server
+- Users navigate to the .vsto file URL to install
 
-Group Policy Deployment (for organizations):
+## 7. Manage Trust
 
-Create a network share with the installation files
-Use Group Policy to deploy the add-in across the organization
+- Ensure the add-in is signed with a trusted certificate
+- Configure Outlook's Trust Center settings to allow the add-in
 
+## 8. Centralized Deployment (for Microsoft 365)
 
-ClickOnce Deployment:
+- Use the Microsoft 365 Admin Center to deploy add-ins centrally
 
-This allows users to install from a web server and receive automatic updates
-Publish to a web server
-Users navigate to the .vsto file URL to install
+## For your specific add-in
 
+1. Ensure all necessary files are included in the deployment package
+2. Update the security email address from the demo address to the actual one
+3. Test the deployment in a controlled environment before wide distribution
 
-Manage Trust:
-
-Ensure the add-in is signed with a trusted certificate
-Configure Outlook's Trust Center settings to allow the add-in
-
-
-Centralized Deployment (for Microsoft 365):
-
-Use the Microsoft 365 Admin Center to deploy add-ins centrally
-
-
-
-For your specific add-in:
-
-Ensure all necessary files are included in the deployment package
-Update the security email address from the demo address to the actual one
-Test the deployment in a controlled environment before wide distribution
-
-Remember, the exact steps might vary depending on your organization's IT policies and infrastructure. Always consult with your IT department for the best deployment strategy in your specific environment.
+**Remember:** The exact steps might vary depending on your organization's IT policies and infrastructure. Always consult with your IT department for the best deployment strategy in your specific environment.
