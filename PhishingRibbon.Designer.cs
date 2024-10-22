@@ -12,7 +12,9 @@
         {
             System.Diagnostics.Debug.WriteLine("PhishingRibbon constructor called");
             InitializeComponent();
+            this.tab1.Visible = true;  // Ensure tab visibility
         }
+
 
         /// <summary> 
         /// Clean up any resources being used.
@@ -72,6 +74,7 @@
             // 
             this.Name = "PhishingRibbon";
             this.RibbonType = "Microsoft.Outlook.Explorer";
+
             this.Tabs.Add(this.tab1);
             this.Load += new Microsoft.Office.Tools.Ribbon.RibbonUIEventHandler(this.PhishingRibbon_Load);
             this.tab1.ResumeLayout(false);
